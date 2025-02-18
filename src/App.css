@@ -1,0 +1,2667 @@
+/* App css */
+@import './styles/reset.css';
+@import './styles/modal.css';
+
+/* ====================== 공통 STYLE ====================== */
+/* *GLOBAL STYLE - 색상 및 그림자 변수 */
+:root {
+    --bg-color: #fbfcfe;
+    --bs-green: #00dd81;
+    --bs-gray: #d3d1d2;
+    --bs-gray2: #808080;
+    --bs-orange: #fe9446;
+    --bs-blue: #4a41f5;
+    --bs-blue2: #4260cf;
+    --bs-purple: #7f58d4;
+    --bs-purple2: #6f67f8;
+    --bs-red: #e8202b;
+    --logo-bg: #00ff85;
+    --gd-orange: linear-gradient(to left, #e38542 0%, #d75636 100%);
+    --gd-blue: linear-gradient(to left, #3885df 0%, #4852ab 100%);
+    --gd-blue2: linear-gradient(to left, #3484fd 30%, #3e52ef 100%);
+    --gd-blue3: linear-gradient(to left, #3e52ef 30%, #3484fd 100%);
+    --gd-yellow: linear-gradient(to left, #f4c87d 0%, #f79b5f 100%);
+    --gd-yellow2: linear-gradient(to left, #f1c660 30%, #f2a25b 100%);
+    --gd-red: linear-gradient(to bottom, #d02d2d 0%, #6a1717 100%);
+    --gd-purple: linear-gradient(to bottom, #413ac2 0%, #1d195b 100%);
+    --gd-purple2: linear-gradient(135deg, #6a11cb, #2575fc);
+    --modal-bg: rgba(0, 0, 0, 0.65);
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    --text-neon: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+body {
+    background: var(--bg-color);
+}
+
+/* *GLOBAL STYLE - 버튼 스타일 */
+/* 기본 네모 버튼 */
+.btn-default {
+    padding: 6px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* 작은 액션 버튼 (Add, Delete 등) */
+.btn-action {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    color: #fff;
+}
+
+/* 둥근 태그형 버튼 */
+.btn-tag {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 15px;
+    color: #fff;
+}
+
+/* 특수 버튼 (Restore 등) */
+.btn-special {
+    padding: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    color: #fff;
+}
+
+/* save 버튼 */
+.btn-submit {
+    padding: 20px 70px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    color: #fff;
+}
+
+button,
+a {
+    transition: filter 0.2s ease-in-out;
+}
+
+button:hover,
+a:hover {
+    filter: brightness(95%);
+}
+button:disabled {
+    filter: none;
+    cursor: default;
+}
+
+/* ====================== 헤더 HEADER ====================== */
+/* *GLOBAL STYLE: Header - 헤더 스타일 */
+.header {
+    background: #fff;
+    padding: 18px 38px;
+    height: 96px;
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.03);
+    z-index: 888;
+}
+.header h1 a {
+    background: #fff;
+    display: block;
+    width: 290px;
+}
+.header a:hover {
+    background: #fff;
+    display: block;
+    /* width: 290px; */
+    filter: none;
+}
+.header a img {
+    display: block;
+    width: 100%;
+}
+
+/* ====================== 사이드메뉴 SIDE MENU ====================== */
+/* *GLOBAL STYLE: SideMenu - 사이드 메뉴 스타일 */
+.side_menu {
+    width: 100%;
+    z-index: 888;
+}
+.side_menu .menu_content {
+    background: #fff;
+    padding: 16px 24px 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 10px;
+}
+.side_menu .menu_content b {
+    display: block;
+    color: #adb5bd;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.side_menu .menu_content a {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--bs-gray2);
+}
+.side_menu .menu_content a:last-child {
+    margin-bottom: 0;
+}
+.side_menu .menu_content a img {
+    margin-right: 10px;
+}
+.side_menu .account_menu a img {
+    margin-right: 12px;
+}
+.side_menu .project_menu a img {
+    width: 28px;
+}
+.side_menu .account_menu a img {
+    width: 18px;
+}
+.side_menu .menu_content a:hover {
+    color: var(--bs-purple);
+    transition: all 0.3s ease all;
+}
+/* ====================== 모바일 사이드메뉴 MOBILE SIDE MENU ====================== */
+/* *GLOBAL STYLE: MOBILE SideMenu - 모바일 사이드 메뉴 스타일 */
+/* 햄버거 버튼 */
+.ham {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 15px;
+    transition: 0.3s ease all;
+    display: none;
+}
+.ham::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transition: 0.3s ease all;
+}
+.ham::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 70%;
+    height: 2px;
+    background: #333;
+    transition: 0.3s ease all;
+}
+.ham.on::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    transition: 0.3s ease all;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #333;
+}
+.ham.on::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+    transition: 0.3s ease all;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: #333;
+}
+/* 사이드메뉴 */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.m_side_menu {
+    position: fixed;
+    top: 0;
+    left: -210%;
+    width: 350px;
+    height: 100%;
+    display: block;
+    background: #fff;
+    z-index: 1000;
+    padding: 30px 15px 30px 15px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
+    transition: 0.3s ease all;
+}
+.m_side_menu.on {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 350px;
+    height: 100%;
+    display: block;
+    background: #fff;
+    z-index: 1000;
+    padding: 30px 15px 30px 15px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
+    transition: 0.3s ease all;
+}
+.m_side_menu .menu_content {
+    display: block;
+    padding: 16px 24px 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.m_side_menu .menu_content b {
+    display: block;
+    color: #adb5bd;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.m_side_menu .menu_content a {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--bs-gray2);
+    width: 100%;
+}
+.m_side_menu .menu_content a:last-child {
+    margin-bottom: 0;
+}
+.m_side_menu .menu_content a img {
+    margin-right: 10px;
+}
+.m_side_menu .project_menu a img {
+    width: 28px;
+}
+.m_side_menu .account_menu a img {
+    width: 18px;
+}
+.m_side_menu .menu_content a:hover span {
+    color: var(--bs-purple);
+    transition: all 0.3s ease all;
+}
+
+/* ====================== CONTENT ====================== */
+/* *GLOBAL STYLE: Content - 공통 콘텐츠 & 컨테이너 스타일 */
+.content {
+    display: flex;
+    padding: 96px 0 0;
+    box-sizing: border-box;
+}
+.content .left_content {
+    position: fixed;
+    top: 96px;
+    left: 0;
+    width: 30%;
+    max-width: 300px;
+    padding: 12px 15px 0;
+    height: calc(100vh - 96px);
+}
+.content .right_content {
+    flex: 1;
+    margin-left: 300px;
+    padding: 20px 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 가운데정렬 일단 80%로 만들어놓음 */
+.right_content .container {
+    width: 77%;
+    margin: 0 auto;
+}
+
+/* ====================== GLOBAL STYLE - COMMON LIST(MAIN, BuildTogether, MyProjects) ====================== */
+/* GLOBAL STYLE: common_list클래스로 메인,함께하기,내프로젝트리스트 에 공통으로 들어갑니다. */
+.common_list {
+    width: 100%;
+}
+.common_list .container .top_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 15px;
+}
+.common_list .container .top_bar .total {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+}
+.common_list .container .top_bar .total p {
+    color: var(--bs-purple);
+}
+.common_list .container .top_bar .total span {
+    color: var(--bs-purple);
+    font-weight: 500;
+}
+.common_list .container .top_bar .search {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    width: 40%;
+    background: #f5f5f5;
+    border-radius: 10px;
+    position: relative;
+}
+.common_list .container .top_bar .search .select {
+    border-right: 1px solid #ddd;
+}
+.common_list .container .top_bar .search .select select {
+    padding: 15px 15px 15px 30px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('/public/images/down_arr3.png') no-repeat left 10px center;
+    background-size: 12px;
+    outline: none;
+    line-height: 120%;
+    font-size: 14px;
+}
+.common_list .container .top_bar .search .input {
+    position: relative;
+}
+.common_list .container .top_bar .search .input input {
+    display: block;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.common_list .container .top_bar .search button.search_btn {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+.common_list .container .top_bar .search button.search_btn img {
+    width: 14px;
+}
+.common_list .container .list_wrap {
+    display: flex;
+    align-items: normal;
+    justify-content: normal;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.common_list .container .list_wrap .item {
+    width: calc(25% - 12px);
+    display: block;
+    background: #fff;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+}
+.common_list .container .list_wrap .item .img {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.common_list .container .list_wrap .item .img img {
+    display: block;
+    width: 100%;
+}
+.common_list .container .list_wrap .item .img:hover img {
+    transform: scale(1.2);
+    transition: 0.3s ease all;
+}
+.common_list .container .list_wrap .item .img:hover a {
+    filter: none;
+}
+.common_list .container .list_wrap .item .info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.common_list .container .list_wrap .item .info .number {
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+.common_list .container .list_wrap .item .info .number span.slash {
+    padding: 0 3px;
+}
+/* 메인 리스트 제목 6줄로 설정 */
+.common_list .container .list_wrap .item .info .txt {
+    width: 65%;
+    line-height: 120%;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    line-height: 1.3;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    height: calc(1.3em * 6);
+}
+.common_list .container .list_wrap .item .view_btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.common_list .container .list_wrap .item .view_btn a {
+    background: var(--bs-green);
+    color: #fff;
+}
+.common_list .container .list_wrap .item .info .gauge {
+    display: block;
+    width: 100%;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 2px;
+    margin-top: 5px;
+}
+
+.common_list .container .list_wrap .item .info .gauge-fill {
+    height: 100%;
+    background: var(--bs-green);
+    transition: width 0.3s ease;
+}
+
+/* ====================== 페이지네이션 PAGENATION ====================== */
+/* GLOBAL STYLE: Pagenation - 공통 페이지 네이션 */
+.common_pagenation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.common_pagenation ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.common_pagenation li {
+    margin: 0 5px;
+}
+
+.common_pagenation button {
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: background-color 0.2s, transform 0.1s;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--bs-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 숫자 버튼 & prev, next 버튼 hover 스타일 동일하게 */
+.common_pagenation button:hover {
+    color: #333;
+    background: rgba(0, 0, 0, 0.1);
+}
+.common_pagenation .on button {
+    color: #fff;
+    background: #a9a8a8; /* 강조된 배경색 */
+    font-weight: bold;
+}
+
+/* prev, next 버튼 스타일 조정 */
+.common_pagenation button.prev,
+.common_pagenation button.next {
+    width: 32px;
+    height: 32px;
+    padding: 0; /* 내부 padding 제거 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+/* prev, next 버튼 안의 이미지 크기 조정 */
+.common_pagenation button.prev img,
+.common_pagenation button.next img {
+    width: 16px;
+    height: 16px;
+}
+
+/* prev, next 버튼 hover 시 애니메이션 효과 */
+.common_pagenation button.prev:hover,
+.common_pagenation button.next:hover {
+    transform: scale(1.05);
+}
+
+.common_pagenation button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ====================== 메인 MAIN ====================== */
+/* *STYLE: Main - 메인 페이지 레이아웃 */
+.main_wrap {
+    position: relative;
+}
+
+/* ====================== 함께하기 BUILD TOGETHER ====================== */
+/* *STYLE: build_together - 함께하기 페이지 레이아웃 */
+.build_together .container .create_btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 15px;
+    right: 15px;
+}
+.build_together .container .create_btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--bs-green);
+    gap: 10px;
+    margin-top: 15px;
+    animation: slideBounce 1s ease-out;
+}
+@keyframes slideBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.build_together .container .create_btn a span {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.build_together .container .create_btn a span img {
+    width: 20px;
+}
+.build_together .container .create_btn a p {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ====================== 내 프로젝트 리스트 MY PROJECTS  ====================== */
+/* *STYLE:  MY PROJECT - 내 프로젝트 리스트 페이지 스타일 */
+.my_project {
+    position: relative;
+}
+.my_project {
+    width: 100%;
+}
+.my_project .container .list_wrap .item .my_project_btn_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.my_project .container .list_wrap .item .my_project_btn_wrap a {
+    color: #fff;
+    font-size: 14px;
+}
+.my_project .container .list_wrap .item .my_project_btn_wrap a.vbtn {
+    background: var(--bs-green);
+}
+.my_project .container .list_wrap .item .my_project_btn_wrap a.ebtn {
+    background: var(--bs-orange);
+}
+.my_project .container .create_btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 15px;
+    right: 15px;
+}
+.my_project .container .create_btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--bs-green);
+    gap: 10px;
+    margin-top: 15px;
+    animation: slideBounce 1s ease-out;
+}
+.my_project .container .create_btn a span {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.my_project .container .create_btn a span img {
+    width: 20px;
+}
+.my_project .container .create_btn a p {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ====================== 소개 ABOUT ====================== */
+/* *STYLE: About - 소개 페이지 스타일 */
+.about_wrap {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    padding: 20px;
+}
+/* 프로필 타이틀 날짜 */
+.about_header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.about_header div {
+    width: 45px;
+    margin-right: 10px;
+}
+.about_header img {
+    width: 100%;
+}
+.about_header h4 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+}
+.about_header span {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+    color: var(--bs-gray2);
+}
+/* 내용 */
+.about_body h5 {
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 18px;
+    letter-spacing: 0.1px;
+}
+.about_body p {
+    margin-bottom: 50px;
+    letter-spacing: 0.1px;
+    line-height: 22px;
+    font-weight: 400;
+}
+.about_body p.p1 {
+    margin-bottom: 20px;
+}
+.about_body strong {
+    font-weight: 900;
+}
+.about_body ul {
+    margin-bottom: 20px;
+}
+.about_body li {
+    margin-bottom: 5px;
+    line-height: 24px;
+}
+.about_body .emoticon {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 5px;
+}
+.about_body .danger {
+    color: red;
+}
+.about_body .success {
+    color: green;
+}
+
+/* ====================== 헬프 HELP  ====================== */
+/* *STYLE: Help - 헬프 페이지 스타일 */
+.help {
+    width: 100%;
+}
+.help_content {
+    background: var(--gd-purple2);
+    padding: 50px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
+}
+.help .deco {
+    width: 180px;
+    height: 180px;
+    padding: 20px 10px 0;
+    border-radius: 50%;
+    margin: 0 auto 40px;
+    border-radius: 100px 100px 0 0;
+    background: linear-gradient(135deg, #fff, #c8d0e4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.help .deco img {
+    width: 100%;
+    animation: slideIn 0.8s ease-in-out forwards;
+}
+.help h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 32px;
+    text-shadow: var(--text-neon);
+}
+.help p {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+.help .contact_mail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.help .icon {
+    width: 36px;
+    margin-right: 10px;
+}
+.help .icon img {
+    width: 100%;
+}
+.help a {
+    color: #fff;
+    font-size: 26px;
+    transition: all 0.2s ease-in;
+}
+.help a:hover {
+    text-shadow: var(--text-neon);
+    transform: scale(1.01);
+}
+.help span {
+    display: inline-block;
+    width: 20px;
+    margin-left: 3px;
+    position: relative;
+    top: 3px;
+}
+.help span img {
+    width: 100%;
+}
+
+/* ====================== 마이페이지 MY PAGE  ====================== */
+/* *STYLE: MyPage -  마이페이지 스타일 */
+.my_page {
+    width: 100%;
+    margin-top: 20px;
+}
+.my_page .mp_contant {
+    width: 100%;
+}
+.m_content {
+    display: none;
+}
+.my_page .mp_title {
+    margin-bottom: 60px;
+}
+.my_page .mp_title h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333 !important;
+}
+.my_page .mp_title p {
+    font-size: 18px;
+}
+.my_page .mp_title button {
+    padding-bottom: 2px;
+    border-bottom: 1px solid #333;
+}
+.my_page .mp_title button:hover {
+    font-weight: 600;
+}
+.my_page .mp_title .logout {
+    color: #333;
+}
+.my_page .mp_body {
+}
+.my_page ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.my_page li {
+    display: flex;
+    height: 160px;
+    width: calc(33.33% - 7px);
+}
+.my_page .link {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+.my_page .link:hover {
+    filter: brightness(100%);
+    background: #f8f9fa;
+}
+.my_page img {
+    width: 30px;
+    margin-bottom: 20px;
+}
+.my_page h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.my_page .mp_body p {
+    font-size: 14px;
+    color: var(--bs-gray2);
+    flex-grow: 1;
+}
+
+/* 다른버전 */
+.my_page .m_content {
+    background: #fff;
+    box-shadow: var(--card-shadow);
+    padding: 35px 20px;
+    border-radius: 10px;
+}
+.my_page .m_content img {
+    margin-bottom: 0;
+    width: auto;
+}
+.my_page .m_content h4 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.my_page .m_content .link {
+    width: auto;
+    height: auto;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    display: block;
+}
+.my_page .m_content ul {
+    display: block;
+    gap: 0;
+}
+.my_page .m_content li {
+    display: block;
+    width: auto;
+    height: auto;
+}
+.my_page .m_content h2 {
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+.my_page .m_content a.account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+.my_page .m_content a.account .left {
+    width: 78%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.my_page .m_content a.account .left .profile {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.my_page .m_content a.account .left img {
+    margin-bottom: 0;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.my_page .m_content a.account .text {
+}
+.my_page .m_content a.account .text h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.my_page .m_content a.account .text h5 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+}
+.my_page .m_content a.account .right {
+}
+.my_page .m_content a.account .right img {
+    width: 10px;
+}
+
+.my_page .m_content .list_top {
+    padding-bottom: 80px;
+    border-bottom: 1px solid #eee;
+}
+.my_page .m_content .list_top a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.my_page .m_content .list_top .lt_left {
+    width: 70%;
+}
+.my_page .m_content .list_top .lt_left h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.my_page .m_content .list_top .lt_left p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+.my_page .m_content .list_top .lt_right {
+    width: 20%;
+}
+
+.my_page .m_content .list_top .lt_right img {
+    width: 100%;
+    transform: rotate(5deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* a 태그에 hover 시 내부 이미지 회전 */
+.my_page .m_content .list_top a:hover .lt_right img {
+    transform: rotate(-10deg);
+}
+.my_page .m_content .common_list {
+    padding: 50px 0 30px;
+    border-bottom: 1px solid #eee;
+}
+.my_page .m_content .common_list h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.my_page .m_content .common_list ul {
+}
+.my_page .m_content .common_list li {
+}
+
+.my_page .m_content .common_list a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+.my_page .m_content .common_list a:hover {
+    background: #f9f8f8;
+    border-radius: 5px;
+}
+.my_page .m_content .common_list .left {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    gap: 10px;
+}
+.my_page .m_content .common_list img.icon {
+    width: 28px;
+}
+.my_page .m_content .common_list h4 {
+}
+.my_page .m_content .common_list img.arr {
+    width: 10px;
+}
+.my_page .m_content .logout {
+    width: 100%;
+    margin-top: 50px;
+}
+.my_page .m_content .logout a {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+/* ====================== 로그인 LOGIN  ====================== */
+/* *STYLE: Login - 로그인 페이지 스타일 */
+.login {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login .login_wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    animation: slideDown 0.5s ease-out;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.login_wrap {
+    animation: slideown 0.5s ease-out;
+}
+.login .login_left {
+    width: 60%;
+}
+.login .login_left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.login .login_right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login .lr_wrap {
+    width: 100%;
+    padding: 0 50px;
+    text-align: center;
+}
+.login .login_home_link {
+    display: block;
+    padding: 10px 0 10px;
+    margin-bottom: 30px;
+    filter: none;
+}
+.login .logo_img {
+    width: 300px;
+}
+.login .login_right h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 60px;
+    color: #444;
+}
+.login ul {
+    display: block;
+    width: 280px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+.login li {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.login button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 11px 0;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+.login button img {
+    width: 24px;
+}
+.login .sign_up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login .sign_up p {
+    margin-right: 8px;
+}
+.login .su_link {
+    color: var(--bs-purple);
+    font-weight: 600;
+}
+
+/* ====================== 내 프로젝트들 MY PROJECT  ====================== */
+/* *STYLE: MyProjects - 내프로젝트 페이지 스타일 */
+/* 프로젝트 없을때 */
+.empty_projects {
+    width: 100%;
+    background: var(--gd-purple2);
+    text-align: center;
+    padding: 40px 0;
+    border-radius: 5px;
+    color: #fff;
+}
+.empty_projects h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 32px;
+    text-shadow: var(--text-neon);
+}
+.empty_projects h3 span {
+    font-size: 28px;
+}
+.empty_projects p {
+    line-height: 30px;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+.empty_projects p span {
+    font-size: 16px;
+}
+.empty_projects a {
+    display: block;
+    padding: 20px 0;
+    background: var(--bs-purple2);
+    box-shadow: var(--card-shadow);
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.empty_projects a:hover {
+    text-shadow: var(--text-neon);
+}
+
+/* ====================== 내 프로젝트 관리 PROJECT MANAGE  ====================== */
+/* *STYLE: ProjectManage - 내 프로젝트 관리 페이지 스타일 */
+.project_table {
+    width: 100%;
+}
+.project_table .container {
+}
+.project_table .container .banner {
+    display: block;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    background: var(--gd-blue2);
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.project_table .container .banner h1 {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+}
+.project_table .container .banner b {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+.project_table .container .manage_list_wrap {
+    display: block;
+    overflow-x: auto;
+    position: relative;
+}
+.project_table .container .pageNation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 40px;
+}
+.project_table .container .pageNation button {
+}
+.project_table .container .pageNation button img {
+    width: 100%;
+}
+.project_table .container .pageNation button.prev_btn {
+    width: 12px;
+}
+.project_table .container .pageNation button.next_btn {
+    width: 12px;
+}
+.project_table .container .pageNation ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.project_table .container .pageNation ul li button {
+    font-size: 14px;
+    color: var(--bs-gray2);
+}
+.project_table .container .pageNation ul li.on button {
+    color: #333;
+    font-weight: 600;
+}
+
+.project_manage .container .manage_list_wrap .ml_title {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    background: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+    min-width: 600px;
+    gap: 10px;
+}
+.project_manage .container .manage_list_wrap .ml_title div {
+    font-size: 18px;
+    text-align: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+}
+.project_manage .container .manage_list_wrap .ml_title .mlt1 {
+    width: calc(30% - 7.5px);
+}
+.project_manage .container .manage_list_wrap .ml_title .mlt2 {
+    width: calc(40% - 7.5px);
+}
+.project_manage .container .manage_list_wrap .ml_title .mlt3 {
+    width: calc(10% - 7.5px);
+}
+.project_manage .container .manage_list_wrap .ml_title .mlt4 {
+    width: calc(20% - 7.5px);
+}
+.project_manage .container .manage_list_wrap .ml_item {
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    min-width: 600px;
+    gap: 10px;
+}
+.project_manage .container .manage_list_wrap .ml_item div {
+    padding: 15px 0px;
+    box-sizing: border-box;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb1 {
+    width: calc(30% - 7.5px);
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    /* padding: 5px; */
+    border: 1px solid #eee;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_img img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_name {
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_name .name {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_name .email {
+    color: #999;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_name span {
+    display: block;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb2 {
+    text-align: left;
+    width: calc(40% - 7.5px);
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb2 span {
+    display: block;
+    color: #999;
+    font-weight: 500;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb2 span.mlb2_upcate {
+    margin-bottom: 10px;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb3 {
+    text-align: center;
+    width: calc(10% - 7.5px);
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb3 button img {
+    display: block;
+    width: 24px;
+}
+.project_manage .container .manage_list_wrap .ml_item .mlb4 {
+    text-align: center;
+    width: calc(20% - 7.5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.project_manage button:disabled {
+    cursor: default;
+}
+.project_manage button.approve_btn {
+    background: var(--gd-blue2);
+    color: #fff;
+}
+.project_manage button.decline_btn {
+    background: var(--gd-orange);
+}
+.project_manage button.declined_btn {
+    background: var(--bs-gray2);
+}
+.project_manage button.approved_btn {
+    background: var(--bs-gray2);
+}
+.project_manage button.kickout_btn {
+    background: var(--gd-yellow);
+}
+
+/* ====================== 프로젝트 작성 PROJECT CREATE   ====================== */
+/* *GLOBAL STYLE: ProjectCreate - 프로젝트 작성, 수정 공통으로 들어가는 클래스 입니다 */
+.project_form {
+    width: 100%;
+    height: 100%;
+}
+.project_form .pf_wrap {
+    box-shadow: var(--card-shadow);
+}
+
+/* 폼 헤더 영역 */
+.project_form .pf_header {
+    background: var(--bs-blue);
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.project_form .pf_header button {
+    padding-right: 5px;
+    margin-right: 15px;
+}
+.project_form .pf_header button img {
+    width: 24px;
+}
+.project_form .pf_header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* 프로젝트 작성 폼 & BODY */
+.project_form form {
+    width: 100%;
+}
+.project_form .pf_body {
+    background: #fff;
+    width: 100%;
+    padding: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* 공통 input & select STYLE */
+/* input - text */
+.project_form input[type='text'] {
+    padding: 15px 10px;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.project_form input[type='text']::placeholder {
+    color: #aaa;
+}
+.project_form input[type='text']:focus {
+    outline: 1px solid var(--bs-blue);
+}
+
+/* input - checkbox */
+.project_form input[type='checkbox'] {
+    display: none;
+}
+.project_form input[type='checkbox'] + label em {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background: url('/public/images/check_icon.png') 0 0/100% no-repeat;
+    vertical-align: middle;
+}
+.project_form input[type='checkbox']:checked + label em {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background: url('/public/images/check_on_icon.png') 0 0/100% no-repeat;
+    vertical-align: middle;
+}
+
+/* select box */
+.project_form select {
+    width: 100%;
+    padding: 15px 25px 15px 10px;
+    border: 1px solid #eee;
+    background: url('/public/images/down_arr2.png') no-repeat right 8px center;
+    background-size: 15px;
+    border-radius: 5px;
+}
+
+/* input - file */
+.project_form input[type='file'] {
+    display: none;
+}
+.project_form input[type='file'] + label {
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+}
+.project_form input[type='file'] + label em {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url(/public/images/file_icon.png) 0 0/100% no-repeat;
+    margin-bottom: 10px;
+}
+.project_form input[type='file'] + label span {
+    font-weight: 500;
+}
+
+/* input - textarea */
+.project_form textarea {
+    width: 100%;
+    min-height: 180px;
+    max-height: 180px;
+    padding: 20px;
+    background: #f9f9f9;
+    line-height: 22px;
+    letter-spacing: 0.4px;
+    border-radius: 5px;
+}
+.project_form textarea::placeholder {
+    color: #aaa;
+}
+.project_form textarea:focus {
+    outline: 1px solid var(--bs-blue);
+}
+
+/* 공통 section  */
+.project_form .pf_list {
+    margin-bottom: 40px;
+}
+.project_form .top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.project_form h4.title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+.project_form h5.required {
+    font-weight: 800;
+    color: red;
+}
+.project_form .bottom {
+    border-radius: 5px;
+}
+/* Team members needed 에서 add 버튼 눌렀을때 */
+.project_form .plus_line {
+    margin-bottom: 10px;
+}
+
+/* 프로젝트 플랫폼 선택 (체크박스) */
+.project_form .pf_checkbox ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.project_form .pf_checkbox li {
+}
+
+/* 프로젝트 필드 및 필요 언어 선택 (셀렉트 박스) */
+.project_form .project_two {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.project_form .projcet_select .inner {
+    width: calc(50% - 5px);
+}
+
+/* 팀 멤버 선택 */
+.project_form .team_members {
+}
+.project_form .team_members .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+}
+/* 버튼 */
+.project_form .team_members button {
+    background: var(--gd-blue2);
+}
+.project_form .team_members button:last-child {
+    background: var(--gd-yellow);
+}
+.project_form .team_members .bottom {
+    display: flex;
+    gap: 20px;
+}
+.project_form .team_members .bottom select {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 이미지 선택  */
+.project_form .main_image {
+}
+.project_form .main_image .bottom {
+    text-align: center;
+    padding: 40px 0;
+    border: 3px dotted #eee;
+}
+.project_form .main_image .bottom span {
+    font-weight: 600;
+    font-size: 18px;
+}
+.project_form .main_image .bottom:hover label em {
+    background: url('/public/images/file_icon2.png') center/contain no-repeat;
+}
+.project_form .main_image .bottom:hover span {
+    color: #888;
+}
+
+/* 선택한 이미지 미리보기 */
+.project_form .image_preview {
+    width: 100%;
+}
+.project_form .image_preview p {
+    color: #777;
+    font-size: 16px;
+}
+.project_form .image_preview img {
+    width: 100%;
+}
+
+/* submit 버튼 */
+.project_form .submit_btn {
+    background: var(--bs-blue);
+}
+
+/* ====================== 프로젝트 수정 PROJECT EDIT  ====================== */
+/* *STYLE: ProjectEdit - 프로젝트 수정 페이지 스타일 */
+.project_form .selected_list {
+}
+
+.project_form .selected_list ul {
+    display: block;
+    padding-bottom: 10px;
+}
+.project_form .selected_list li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.project_form .selected_list img {
+    width: 22px;
+    margin-right: 8px;
+}
+.project_form .category_list {
+    display: flex;
+    align-items: center;
+    margin: 2px 10px 0 0;
+}
+.project_form .category_list span {
+}
+.project_form .line_through {
+    text-decoration: line-through;
+}
+.project_form .buttons {
+    display: flex;
+    align-items: center;
+}
+.project_form .buttons button.delete_btn {
+    background: var(--gd-red);
+}
+.project_form .buttons button.restore_btn {
+    background: var(--gd-purple);
+}
+
+/* 프로젝트 수정 하단 버튼 스타일 */
+.project_form .pe_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.project_form .pe_buttons .delete_btn {
+    color: var(--bs-red);
+    font-weight: 600;
+    padding-bottom: 4px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.project_form .pe_buttons .delete_btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--bs-red);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+.project_form .pe_buttons .delete_btn:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* ====================== 내가 참가중인 프로젝트 PARTICIPATING PROJECTS  ====================== */
+/* *STYLE: ParticipatingProjects - 내가 참가중인 프로젝트 페이지 스타일 */
+.part_projects {
+}
+.part_projects .container {
+}
+.part_projects .banner {
+}
+.part_projects h1 {
+}
+.part_projects b {
+}
+.part_projects .list_wrap {
+    background: #f6f7fc;
+    padding: 40px 20px;
+    overflow-x: auto;
+}
+
+.part_projects .title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #aaa;
+    min-width: 600px;
+}
+.part_projects .title .lt1 {
+    flex: 1 1 45%;
+}
+.part_projects .title .lt2 {
+    flex: 1 1 40%;
+}
+.part_projects .title .lt3 {
+    flex: 1 1 15%;
+    text-align: center;
+}
+.part_projects .list_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0 12px 5px;
+    border-bottom: 1px solid #ddd;
+    color: var(--bs-blue2);
+    min-width: 600px;
+}
+.part_projects .lb1 {
+    flex: 1 1 45%;
+}
+.part_projects .lb1 .lb_name {
+    display: block;
+    width: 100%;
+    white-space: pre-line;
+    word-break: break-all;
+    line-height: 1.3;
+}
+.part_projects .lb2 {
+    flex: 1 1 40%;
+}
+.part_projects span.lb2_cate {
+    line-height: 1.3;
+}
+.part_projects .lb3 {
+    text-align: center;
+    flex: 1 1 15%;
+}
+.part_projects .lb3 button {
+    cursor: default;
+}
+.part_projects button.approved_btn {
+    background: var(--gd-blue3);
+}
+.part_projects button.declined_btn {
+    background: var(--gd-yellow2);
+}
+.part_projects button.pending_btn {
+    background: var(--bs-gray2);
+}
+
+/* ====================== 프로젝트 상세 페이지 PROJECT Detail   ====================== */
+/* *STYLE: ProjectDetail - 프로젝트 상세 페이지 스타일 */
+.project_detail {
+    display: block;
+    width: 75%;
+}
+.project_detail .container {
+    display: block;
+    width: 100%;
+}
+.project_detail .container .pd_banner {
+    width: 100%;
+    display: block;
+    padding: 40px 50px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.07);
+}
+.project_detail .container .pd_banner img {
+    width: 100%;
+    display: block;
+    margin-bottom: 40px;
+    max-height: 500px;
+    object-fit: cover;
+}
+.project_detail .container h1 {
+    font-weight: 600;
+    font-size: 20px;
+    display: block;
+    margin: 15px 0;
+}
+.project_detail .container .language_box {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    gap: 12px;
+    background: #e4f7fe;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.project_detail .container .language_box img {
+    width: 35px !important;
+    padding: 4px;
+    margin-bottom: 0;
+}
+.project_detail .container .language_box .language_info {
+    display: block;
+}
+.project_detail .container .language_box .language_info b {
+    margin-bottom: 5px;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--bs-blue);
+}
+.project_detail .container .language_box .language_info p {
+    font-size: 14px;
+}
+.project_detail .container .project_info_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.project_detail .container .project_info_list .pil_box {
+    display: block;
+    padding: 15px;
+    box-sizing: border-box;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #fff;
+    border-top: 15px solid #333;
+    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.07);
+    width: 30%;
+}
+.project_detail .container .project_info_list .pil_box.pb1 {
+    border-top-color: #ee409f;
+}
+.project_detail .container .project_info_list .pil_box.pb2 {
+    border-top-color: #03bfcb;
+}
+.project_detail .container .project_info_list .pil_box.pb3 {
+    border-top-color: #01c556;
+}
+.project_detail .container .project_info_list .pil_box img {
+    width: 35px;
+    padding: 4px;
+}
+
+.project_detail .common_box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project_detail .language_img1 {
+    background: var(--gd-blue);
+}
+.project_detail .language_img {
+    background: #ee409f;
+}
+.project_detail .filed_img {
+    background: #03bfcb;
+}
+.project_detail .platform_img {
+    background: #01c556;
+}
+
+.project_detail .container .project_info_list .pil_box h2 {
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    margin: 20px 0 10px;
+}
+.project_detail .container .project_info_list .pil_box h3 {
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+}
+.project_detail .container .category_apply {
+    display: block;
+    position: relative;
+    margin-top: 15px;
+    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.07);
+}
+.project_detail .container .category_apply .ca_box {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    gap: 12px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #fff;
+}
+.project_detail .container .category_apply .ca_box:last-child {
+    border-bottom: 0;
+}
+.project_detail .container .category_apply .ca_box .people {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* width: 10%; */
+    flex: 0 1 10%;
+    min-width: 80px;
+}
+.project_detail .container .category_apply .ca_box .people span {
+    color: var(--bs-green);
+}
+.project_detail .container .category_apply .ca_box .people span.p1 {
+    font-size: 14px;
+}
+.project_detail .container .category_apply .ca_box .people span.p2 {
+}
+.project_detail .container .category_apply .ca_box .people span.p3 {
+    font-weight: 600;
+}
+.project_detail .container .category_apply .ca_box .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    width: 80%;
+}
+.project_detail .container .category_apply .ca_box .up_category {
+    /* width: 40%; */
+    font-weight: 600;
+    flex: 1 1 40%;
+    min-width: 150px;
+}
+.project_detail .container .category_apply .ca_box .down_category {
+    /* width: 40%; */
+    font-weight: 600;
+    flex: 1 1 40%;
+    min-width: 150px;
+}
+.project_detail .container .category_apply .ca_box .apply_btn {
+    /* width: 10%; */
+    flex: 0 1 10%;
+    min-width: 80px;
+}
+.project_detail .container .category_apply .ca_box .apply_btn button {
+    color: #fff;
+    font-size: 12px;
+}
+.project_detail .container .category_apply .ca_box .apply_btn button.on {
+    background: var(--bs-green);
+}
+.project_detail .container .category_apply .ca_box .apply_btn button.off {
+    background: var(--bs-gray);
+}
+.project_detail .container .description_box {
+    display: block;
+    margin-top: 15px;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.07);
+}
+.project_detail .container .description_box b {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+}
+.project_detail .container .description_box p {
+    display: block;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--bs-gray2);
+}
+.project_detail .container .profit_box {
+    display: block;
+    margin-top: 15px;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+}
+.project_detail .container .profit_box b {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+}
+.project_detail .container .profit_box p {
+    display: block;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--bs-gray2);
+}
+
+.collaborator {
+    width: 100%;
+    background: #f6f7fc;
+    border-radius: 10px;
+    padding: 40px 0 50px;
+    margin-top: 40px;
+}
+
+.collaborator h3 {
+    padding: 0 20px 28px;
+    font-size: 22px;
+    font-weight: 700;
+}
+.collaborator ul {
+    display: block;
+}
+.collaborator li {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+}
+.collaborator li:hover {
+    background: rgba(66, 96, 207, 0.05);
+}
+.collaborator .icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    width: 8%;
+}
+.collaborator .icon img {
+    width: 25px;
+    margin-bottom: 4px;
+}
+.collaborator .icon span {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bs-blue2);
+}
+.collaborator .li_left {
+    width: 100%;
+}
+.collaborator .li_mid {
+    width: 100%;
+}
+.collaborator .li_right {
+    width: 25%;
+    text-align: end;
+}
+.collaborator .li_right h4 {
+    color: #777;
+}
+
+.collaborator h4 {
+    font-size: 16px;
+    font-weight: 500;
+    word-break: break-word;
+    white-space: pre-line;
+}
+.collaborator .li_wrap {
+    width: 67%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* .scroll_guide {
+    display: none;
+} */
+
+/* ====================== 404 페이지 NOT FOUND   ====================== */
+/* *STYLE: Not found - 404 페이지 스타일 */
+.not_found {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(138deg, #cbcbcb 30%, #b5a8cd 100%);
+    overflow: hidden;
+}
+
+.not_found .title {
+    font-size: 120px;
+    font-weight: 900;
+    color: var(--bs-purple);
+    text-shadow: 4px 4px 10px rgba(135, 135, 135, 0.5);
+    margin-bottom: 10px;
+    animation: shake404 2s infinite ease-in-out alternate;
+}
+
+@keyframes shake404 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+.not_found .text {
+    font-size: 22px;
+    color: #444;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+.not_found .logo {
+    position: absolute;
+    top: 42%;
+    left: 28%;
+    width: 300px;
+    opacity: 0.05;
+    transform: rotate(-3deg);
+}
+
+.not_found a.home_btn {
+    background: var(--bs-purple);
+    color: #fff !important;
+    font-size: 18px;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+.not_found a.home_btn:hover {
+    background: var(--bs-purple);
+    transform: scale(1.05);
+}
+
+.not_found a.home_btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(222, 222, 222, 0.7);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====================== 반응형 스타일 ====================== */
+/* ====================== 반응형 스타일 ====================== */
+
+/* 태블릿 및 모바일 (1199px 이하) */
+@media (max-width: 1199px) {
+    .content {
+        padding: 70px 0;
+    }
+    .header {
+        height: 70px;
+        padding: 9px 15px;
+    }
+    .side_menu {
+        display: none;
+    }
+    .m_side_menu {
+        display: block;
+    }
+    .content {
+    }
+    .ham {
+        display: block;
+    }
+    .content .left_content {
+        display: none;
+    }
+    .content .right_content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .right_content .container {
+        width: 88%;
+    }
+    .project_detail .container {
+        width: 100%;
+    }
+    .project_detail {
+        width: 90%;
+    }
+    .project_detail .container .pd_banner img {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .my_page li {
+        width: calc(50% - 5px);
+    }
+
+    .login .login_left {
+        display: none;
+    }
+    .login .login_right {
+        width: 100%;
+    }
+    .login .logo_img {
+        width: 270px;
+    }
+    .login .login_right h3 {
+        font-size: 24px;
+    }
+}
+
+/* 모바일 (899px 이하) */
+@media (max-width: 899px) {
+    .content {
+        padding: 70px 0 0;
+    }
+
+    .common_list .container .top_bar .search .input {
+        display: inline-block;
+        width: 70%;
+    }
+    .common_list .container .top_bar .search .input input {
+        width: 100%;
+    }
+    .common_list .container .list_wrap .item {
+        /* width: calc(33.3333% - 12px); */
+        width: calc(50% - 7.5px);
+    }
+    .common_list .container .top_bar .search {
+        width: 70%;
+    }
+    .project_detail .container .category_apply .ca_box .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: normal;
+        width: 80%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* 프로젝트 상세 */
+    .project_detail .container .project_info_list {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .project_detail .container .project_info_list .pil_box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 프로젝트 쓰기 */
+    .project_form .pf_checkbox ul {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .project_form .pf_checkbox li {
+        width: calc(50% - 10px);
+    }
+
+    /* 마이프로젝트 empty 박스 */
+
+    .empty_projects a {
+        width: 300px;
+        font-size: 16px;
+    }
+    .empty_projects h3 {
+        font-size: 24px;
+    }
+
+    .scroll_guide {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-size: 12px;
+        padding: 6px 12px;
+        border-radius: 16px;
+        opacity: 0;
+        animation: fadeInOut 3s ease-in-out;
+        backdrop-filter: blur(5px);
+        white-space: nowrap;
+    }
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .project_manage .container .manage_list_wrap .ml_item .mlb1 {
+        width: auto;
+    }
+}
+
+/* 모바일 (630px 이하) */
+@media (max-width: 630px) {
+    .m_side_menu .menu_content a {
+        font-weight: 500;
+    }
+    .common_list .container .top_bar .search {
+        width: 100%;
+        margin-top: 15px;
+    }
+    .common_list .container .top_bar {
+        flex-wrap: wrap;
+    }
+
+    .project_detail .container .pd_banner {
+        padding: 20px;
+    }
+    .project_detail .container h1 {
+        font-size: 16px;
+    }
+
+    .project_form .project_two {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .project_form .projcet_select .inner {
+        width: 100%;
+    }
+    .project_form .projcet_select .project_field {
+        margin-bottom: 40px;
+    }
+    .project_form .team_members .bottom {
+        flex-wrap: wrap;
+    }
+    .project_form .team_members .bottom select {
+        flex: 100%;
+    }
+
+    .help .deco {
+        width: 140px;
+        height: 140px;
+    }
+    .help h3 {
+        font-size: 24px;
+    }
+    .help p {
+        margin-bottom: 16px;
+    }
+
+    .help .icon {
+        width: 24px;
+        margin-right: 4px;
+    }
+    .help a {
+        font-size: 24px;
+    }
+
+    .project_manage .container .manage_list_wrap .ml_title .mlt2 {
+        width: calc(35% - 7.5px);
+    }
+    .project_manage .container .manage_list_wrap .ml_title .mlt3 {
+        width: calc(15% - 7.5px);
+    }
+    .project_manage .container .manage_list_wrap .ml_item .mlb2 {
+        width: calc(35% - 7.5px);
+    }
+    .project_manage .container .manage_list_wrap .ml_item .mlb3 {
+        width: calc(15% - 7.5px);
+    }
+    .my_page .mp_content {
+        display: none;
+    }
+    .my_page .m_content {
+        display: block;
+    }
+    .collaborator .icon {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .collaborator li {
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+    .collaborator li > div {
+        width: 100% !important;
+        text-align: left;
+    }
+    .collaborator h3 {
+        padding: 0 20px 18px;
+    }
+    .collaborator h4 {
+        text-align: left;
+    }
+    .project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_img {
+        width: 35px;
+        height: 35px;
+    }
+    .project_manage .container .manage_list_wrap .ml_item .mlb1 .mlb_img img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* 모바일 (460px 이하) */
+@media (max-width: 450px) {
+    body {
+    }
+
+    .common_list .container .top_bar .search .input {
+        width: 60%;
+    }
+    .header h1 a {
+        width: 230px;
+    }
+    .m_side_menu {
+        width: 277px;
+    }
+    .m_side_menu.on {
+        width: 277px;
+    }
+    .common_list .container .list_wrap .item {
+        width: 100%;
+    }
+    .project_detail .container .category_apply .ca_box {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .project_detail .container .pd_banner {
+        padding: 15px;
+    }
+    .project_detail .container h1 {
+        font-size: 14px;
+    }
+    .project_detail .container .category_apply .ca_box .people {
+        width: calc(10% - 5px);
+        flex: none;
+        min-width: 0;
+    }
+    .project_detail .container .category_apply .ca_box .wrap {
+        width: calc(90% - 5px);
+    }
+    .project_detail .container .category_apply .ca_box .apply_btn {
+        flex: 0 1 100%;
+    }
+    .project_detail .container .category_apply .ca_box .apply_btn button {
+        width: 100%;
+        padding: 10px 15px;
+    }
+    .project_form .team_members .top {
+        display: block;
+    }
+    .project_form h4.title {
+        display: inline-block;
+    }
+    .project_form h5.required {
+        display: inline-block;
+    }
+    .project_form .team_members .btn {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .project_create .btn-submit {
+        width: 100%;
+    }
+
+    .project_form .category_list {
+        flex-wrap: wrap;
+    }
+    .project_form .selected_list li {
+        padding: 10px 0;
+        margin-bottom: 0;
+    }
+    .project_form .selected_list img {
+        display: none;
+    }
+    .project_form .category_list .category_upper {
+        margin-bottom: 10px;
+    }
+    .project_form .plus_line {
+        margin-bottom: 0;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    .project_edit .pe_buttons button {
+    }
+    .project_edit .pe_buttons button.btn-submit {
+        padding: 20px 30px;
+    }
+    .project_form .pe_buttons .delete_btn {
+        font-weight: 500;
+        width: 40%;
+    }
+
+    .my_page .m_content {
+        padding: 35px 15px;
+    }
+    .my_page .m_content .list_top a {
+        padding: 20px 15px;
+    }
+
+    .modal .card {
+        width: 300px;
+    }
+    .modal.chat .card {
+        width: 300px;
+    }
+    .modal .modal_icon {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+    }
+    .modal.send .modal_icon {
+    }
+    .modal .modal_icon img {
+        width: 60px;
+    }
+    .modal.send h3 {
+        font-size: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    .modal .text_wrap {
+        padding: 0 20px !important;
+    }
+    .modal.delete h3 {
+        margin-top: 80px;
+    }
+    .modal.delete p {
+        margin-bottom: 40px;
+    }
+    .modal.delete .modal_btns button {
+        width: 47%;
+    }
+    /* 마이프로젝트 empty 박스 */
+    .empty_projects {
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .empty_projects a {
+        width: 200px;
+        font-size: 14px;
+    }
+    .empty_projects h3 {
+        font-size: 22px;
+    }
+
+    /* help 페이지 */
+    .help_content {
+        padding: 20px 0;
+    }
+    .help .deco {
+        width: 100px;
+        height: 100px;
+    }
+    .help h3 {
+        font-size: 20px;
+    }
+    .help a {
+        font-size: 20px;
+    }
+    .help p {
+        font-size: 14px;
+    }
+
+    .login .login_right h3 {
+        font-weight: 500;
+    }
+    .login .sign_up {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .login .sign_up p {
+        margin-right: 0;
+    }
+
+    .modal h3 {
+        font-size: 22px;
+    }
+
+    .project_form .pf_body {
+        padding: 30px 15px;
+    }
+}
