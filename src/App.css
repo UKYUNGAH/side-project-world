@@ -470,7 +470,8 @@ button:disabled {
     line-height: 1.3;
     -webkit-line-clamp: 6;
     line-clamp: 6;
-    height: calc(1.3em * 6);
+    /* 여기 */
+    height: calc(1.28em * 6);
 }
 .common_list .container .list_wrap .item .view_btn {
     display: flex;
