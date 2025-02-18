@@ -2582,7 +2582,9 @@ button:disabled {
     .my_page .m_content .list_top a {
         padding: 20px 15px;
     }
-
+    .modal .text_wrap {
+        padding: 0 20px !important;
+    }
     .modal .card {
         width: 300px;
     }
@@ -2604,7 +2606,10 @@ button:disabled {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
-    .modal .text_wrap {
+    .modal.delete .text_wrap {
+        padding: 0 20px !important;
+    }
+    .modal.send .text_wrap {
         padding: 0 20px !important;
     }
     .modal.delete h3 {

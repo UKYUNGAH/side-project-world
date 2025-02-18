@@ -181,7 +181,7 @@ const MyPage = () => {
                         <ul>
                             {/* 헬프페이지  */}
                             <li>
-                                <Link to="/myProjects" className="link">
+                                <Link to="/help" className="link">
                                     <div className="left">
                                         <img src="images/help.png" alt="List icon" className="icon" />
                                         <h4>Help</h4>
